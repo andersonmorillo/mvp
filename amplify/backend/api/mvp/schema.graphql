@@ -1,0 +1,50 @@
+enum Campo {
+  MECATRONICA
+  SISTEMAS
+  BIOMEDICA
+}
+
+type Coordinador @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String!
+  correo: String
+}
+
+type Estudiante @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String!
+  campo: Campo
+  correo: String
+}
+
+type Profesor @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String!
+  campo: Campo
+  correo: String
+}
+
+type Postulacion @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  estado: Boolean!
+  campo: Campo!
+}
+
+type Proyecto @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  estado: Boolean!
+  campo: Campo!
+  estudiante: String
+  profesor: String
+}
+
+type Reporte @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  descripcion: String!
+  calificacion: String
+}
+ 
